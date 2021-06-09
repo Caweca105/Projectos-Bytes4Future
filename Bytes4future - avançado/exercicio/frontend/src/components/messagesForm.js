@@ -6,9 +6,23 @@ function MessageForm(props) {
         <section>
             <Formik
                 initialValues={{name: "", message: ""}}
-                onSubmit={(values) => {
+                onSubmit={async (values, {resetForm}) => {
                     console.log(values);
-                }}
+                    try {
+                        const res = await fetch("/api/messages", {
+                        method: "POST",
+                        body: JSON.stringify(values),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    if (res.status = 201) {
+                        resetForm();
+                    }
+                } catch (err) {
+                    console.error(err)
+                }
+            }}
             >
                 {
                     (props) => (
