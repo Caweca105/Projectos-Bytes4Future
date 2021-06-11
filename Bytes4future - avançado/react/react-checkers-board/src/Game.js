@@ -1,7 +1,7 @@
 import React from 'react';
-import {returnPlayerName} from './utilitarios.js';
+import {returnPlayerName} from './utils.js';
 import {ReactCheckers} from './ReactCheckers.js';
-import Board from './Tabuleiro';
+import Board from './Board.js';
 import { Router } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 import {Opponent} from './Opponent.js';
