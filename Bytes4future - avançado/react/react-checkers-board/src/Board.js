@@ -1,3 +1,5 @@
+// In this file, we build the board, our main idea was to use objects to build the board, it's limits and the checkered pattern.
+
 import React from 'react';
 import * as utils from './utils.js';
 

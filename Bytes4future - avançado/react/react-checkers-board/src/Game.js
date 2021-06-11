@@ -1,10 +1,12 @@
+// In this file, it's purpose was to make the rules of the game and how the components interact with each other.
+
 import React from 'react';
 import {returnPlayerName} from './utils.js';
 import {ReactCheckers} from './ReactCheckers.js';
 import Board from './Board.js';
 import { Router } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
-import {Opponent} from './Opponent.js';
+ 
 
 const browserHistory = createBrowserHistory();
 
@@ -16,7 +18,6 @@ export class Game extends React.Component {
         this.columns = this.setColumns();
 
         this.ReactCheckers = new ReactCheckers(this.columns);
-        this.Opponent = new Opponent(this.columns);
 
         this.state = {
             players: null,
@@ -175,7 +176,7 @@ export class Game extends React.Component {
             winner: postMoveState.winner,
         });
     }
-// colocar reset
+
     undo() {
         const backStep = parseInt(this.state.stepNumber, 10) -1;
         if (backStep < 0) {
@@ -211,7 +212,7 @@ export class Game extends React.Component {
 //        console.log(this.state);
 
         let gameStatus;
-// colocar botão de reset
+
         let undoClass = 'undo';
 
         if (this.state.stepNumber < 1) {
@@ -253,7 +254,7 @@ export class Game extends React.Component {
                         />
                     </div>
                     <div className="time-travel">
-                        <button className={undoClass} onClick={()=>this.undo()}>Reset</button>
+                        <button className={undoClass} onClick={()=>this.undo()}>undo</button>
                     </div>
                 </div>
             </Router>

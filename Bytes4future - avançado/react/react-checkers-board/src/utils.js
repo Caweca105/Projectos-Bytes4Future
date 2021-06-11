@@ -1,3 +1,5 @@
+// In this file we tried to put functions that would be used by other files of the program. (that's why we export all of them)
+
 export function isOdd(n) {
     return Math.abs(n % 2) === 1;
 }
