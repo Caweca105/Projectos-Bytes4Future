@@ -4,7 +4,7 @@
   }
 
 #root {
-    height: 120vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,11 +37,21 @@ body, html {
     margin-right: auto;
 }
 
+.game-status.groot {
+    background-color: #ff8484bb;
+    border: 5px solid #4c2719b4;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.game-status.rocket {
+    background-color: #cb48b7b0;
+    border: 5px solid #c3b59fb0;
+    color: rgba(255, 255, 255, 0.76);
+}
+
 .game-status {
     display: block;
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.884);
-    border: 5px solid #a9badac7;
     width: 55%;
     max-width: 500px;
     font-size: 30px;
@@ -94,11 +104,11 @@ body, html {
 }
 
 .square.movable.player1-move {
-    background-color: #CB48B7;
+    background-color: #cb48b7b0;
 }
 
 .square.movable.player2-move {
-    background-color: #FF8484;
+    background-color: #ff8484bb;
 }
 
 .square.player1, .square.player2, .square.movable {

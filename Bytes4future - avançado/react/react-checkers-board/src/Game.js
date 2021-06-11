@@ -239,7 +239,7 @@ export class Game extends React.Component {
         return(
             <Router history={browserHistory} basename={'react-checkers'} >
                 <div className="reactCheckers">
-                    <div className="game-status">
+                    <div className={["game-status"].concat(gameStatus.toLowerCase()).join(' ')}>
                         {gameStatus}
                     </div>
                     <div className="game-board">
