@@ -157,69 +157,8 @@ export class Game extends React.Component {
                 return;
             }
 
-            this.updateStatePostMove(postMoveState);
-
-            // Start computer move is the player is finished
-            if (postMoveState.currentPlayer === false && postMoveState.winner === null) {
-                this.computerTurn();
-            }
+            this.updateStatePostMove(postMoveState);           
         }
-    }
-
-    computerTurn(piece = null) {
-        if (this.state.players > 1) {
-            return;
-        }
-
-        setTimeout(()=> {
-            const currentState = this.getCurrentState();
-            const boardState = currentState.boardState;
-
-            let computerMove;
-            let coordinates;
-            let moveTo;
-
-            // If var piece != null, the piece has previously jumped.
-            if (piece === null) {
-                //computerMove = this.Opponent.getRandomMove(boardState, 'player2');
-                computerMove = this.Opponent.getSmartMove(this.state, boardState, 'player2');
-                
-                coordinates = computerMove.piece;
-                moveTo = computerMove.moveTo;
-            } else {
-                // Prevent the computer player from choosing another piece to move. It must move the active piece
-                computerMove = this.ReactCheckers.getMoves(boardState, piece, boardState[piece].isKing, true);
-                coordinates = piece;
-                moveTo = computerMove[0][Math.floor(Math.random()*computerMove[0].length)];
-            }
-
-            const clickedSquare = boardState[coordinates];
-
-            let movesData = this.ReactCheckers.getMoves(boardState, coordinates, clickedSquare.isKing, false);
-
-            this.setState({
-                activePiece: coordinates,
-                moves: movesData[0],
-                jumpKills: movesData[1],
-            });
-
-            setTimeout(()=> {
-                const postMoveState = this.ReactCheckers.movePiece(moveTo, this.state);
-
-                if (postMoveState === null) {
-                    return;
-                }
-
-                this.updateStatePostMove(postMoveState);
-
-                // If the computer player has jumped and is still moving, continue jump with active piece
-                if (postMoveState.currentPlayer === false) {
-                    this.computerTurn(postMoveState.activePiece);
-                }
-            },
-            500);
-        },
-        1000);
     }
 
     updateStatePostMove(postMoveState) {
@@ -236,7 +175,7 @@ export class Game extends React.Component {
             winner: postMoveState.winner,
         });
     }
-
+// colocar reset
     undo() {
         const backStep = parseInt(this.state.stepNumber, 10) -1;
         if (backStep < 0) {
@@ -272,7 +211,7 @@ export class Game extends React.Component {
 //        console.log(this.state);
 
         let gameStatus;
-
+// colocar botão de reset
         let undoClass = 'undo';
 
         if (this.state.stepNumber < 1) {
@@ -281,35 +220,20 @@ export class Game extends React.Component {
 
         switch (this.state.winner) {
             case 'player1pieces':
-                gameStatus = 'Player One Wins!';
+                gameStatus = 'Rocket Wins!';
                 break;
             case 'player2pieces':
-                gameStatus = 'Player Two Wins!';
+                gameStatus = 'Groot Wins!';
                 break;
             case 'player1moves':
-                gameStatus = 'No moves left - Player One Wins!';
+                gameStatus = 'No moves left - Rocket Wins!';
                 break;
             case 'player2moves':
-                gameStatus = 'No moves left - Player Two Wins!';
+                gameStatus = 'No moves left - Groot Wins!';
                 break;
             default:
-                gameStatus = currentState.currentPlayer === true ? 'Player One' : 'Player Two';
+                gameStatus = currentState.currentPlayer === true ? 'Rocket' : 'Groot';
                 break;
-        }
-
-        if (this.state.players === null) {
-            return(
-                <Router history={browserHistory} basename={'react-checkers'} >
-                    <div className="players-select">
-                        <div className="players">
-                            <div className="one-player" onClick={()=> this.setPlayers(1) }>One Player</div>
-                        </div>
-                        <div className="players">
-                            <div className="two-player" onClick={()=> this.setPlayers(2) }>Two Player</div>
-                        </div>
-                    </div>
-                </Router>
-            )
         }
 
         return(
@@ -329,7 +253,7 @@ export class Game extends React.Component {
                         />
                     </div>
                     <div className="time-travel">
-                        <button className={undoClass} onClick={()=>this.undo()}>Undo</button>
+                        <button className={undoClass} onClick={()=>this.undo()}>Reset</button>
                     </div>
                 </div>
             </Router>

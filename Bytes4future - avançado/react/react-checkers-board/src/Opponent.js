@@ -30,7 +30,7 @@ export class Opponent extends ReactCheckers {
 
         return computerMoves;
     }
-
+/*
     getSmartMove(state, boardState, player) {
         const computerMoves = this.getComputerMoves(boardState, player);
 
@@ -125,7 +125,8 @@ export class Opponent extends ReactCheckers {
 
         return out;
     }
-
+    */
+    /*
     getRandomMove(boardState, player) {
         const computerMoves = this.getComputerMoves(boardState, player);
         const keys = Object.keys(computerMoves);
@@ -139,5 +140,5 @@ export class Opponent extends ReactCheckers {
         out.moveTo = randomMoveTo;
 
         return out;
-    }
+    }*/
 }

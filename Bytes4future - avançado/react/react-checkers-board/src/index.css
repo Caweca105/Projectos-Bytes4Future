@@ -1,11 +1,23 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/guardians.ttf/") format("ttf"),
+  }
+
 #root {
-    height: 90vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 20px;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'guardians';
+    background-image: url('img/Galaxy.jpg');
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
 }
 
 .players > div {
@@ -20,15 +32,16 @@
 
 .game-board {
     display: inline-block;
-    border: 10px solid #008b8b;
-    position: relative;
+    border: 10px solid #206dba7e;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .game-status {
     display: block;
     padding: 5px;
-    background-color: #fff;
-    border: 5px solid #deb887;
+    background-color: rgba(255, 255, 255, 0.884);
+    border: 5px solid #a9badac7;
     width: 55%;
     max-width: 500px;
     font-size: 30px;
@@ -51,7 +64,7 @@
     border-radius: 0;
     background-color: #fff;
     box-shadow: none;
-    border: 3px solid #deb887;
+    border: 3px solid #A9BADA;
     margin: 5px;
     cursor: pointer;
 }
@@ -67,7 +80,7 @@
 }
 
 .square {
-    background: no-repeat #fff;
+    background: no-repeat rgba(255, 255, 255, 0.877);
     border: none;
     height: 80px;
     width: 80px;
@@ -81,11 +94,11 @@
 }
 
 .square.movable.player1-move {
-    background-color: #ff6347;
+    background-color: #CB48B7;
 }
 
 .square.movable.player2-move {
-    background-color: #7fffd4;
+    background-color: #FF8484;
 }
 
 .square.player1, .square.player2, .square.movable {
@@ -93,20 +106,24 @@
 }
 
 .square.black {
-    background-color: #262626;
+    background-color: #2626269a;
 }
 
 .square.player1 {
     background-image: url("img/red-pawn.png");
+    highlight: #206EBA;
 }
 .square.player2 {
     background-image: url("img/blue-pawn.png");
+    highlight: #0F2242;
 }
 .square.player1.king {
     background-image: url("img/red-king.png");
+    highlight: #206EBA;
 }
 .square.player2.king {
     background-image: url("img/blue-king.png");
+    highlight: #0F2242;
 }
 
 @media only screen and (max-width: 700px) {

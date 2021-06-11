@@ -1,27 +1,3 @@
-# React Checkers
-
-Playable version here: [http://www.gabrielmioni.com/react-checkers/](http://www.gabrielmioni.com/react-checkers/)
-
-This is a 2 player checkers game built in React.js:
-
-Features:
-* Mobile friendly design
-* Game board maintains state history and players can undo moves
-* Untold hours of checkers based entertainment
-
-### Playing
-Human players take turns selecting piece from the board. Board squares are highlighted to show the player legal moves available for their selected piece.
-
-A piece can be de-selected either by clicking on the already selected piece or just choosing another piece.
-
-Players win either by:
-- Jumping (and eliminating) all of the opponent's pieces.
-- Making it impossible for them to move.
-
-Once a player has committed to a jump they must take all available jumps. However starting a jump isn't required (this differs from checkers tournament rules, but that's not how I played when I was kid).
-
-The rules are otherwise normal checkers. Kings are made by reaching the opponents side, multi-jumping is possible (and satisfying), you would probably rather play Nintendo -- but you can't for whatever reason. You're stuck with checkers.
-
 ### Code
 The project was started using the NPM create-react-app
 
