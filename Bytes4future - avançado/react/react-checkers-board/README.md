@@ -30,3 +30,5 @@ A vitoria ocorre quando um dos jogadores captura todas as peças do adversário,
 
 Criou-se um ficheiro adicional designado por util que contém funções menos complexas que foram usadas ao longo do código e foram importadas no inicio do código.
 No final criou-se também um botão reset de modo a ir para a jogada anterior.
+
+O projeto foi desenvolvido por Diogo, Miriam e Pedro 
