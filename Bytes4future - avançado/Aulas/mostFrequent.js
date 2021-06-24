@@ -1,22 +1,23 @@
 function computeMostFrequent(numbers) {
-    const contadores = new Map();
-    for (const elem of numbers) {
-        if (!contadores.has(elem)) {
-            contadores.set(elem, 0)
+    let map = new Map();
+
+    for(let i = 0; i < numbers.length; i++) {
+        if (!map.has(numbers[i])) {
+            map.set(numbers[i], 1)
         }
-    contadores.set(elem, contadores.get(elem) + 1);
-    }
-
-    let menosRepetido = numbers[0]
-    let contagemMenosRepetido = contadores.get(menosRepetido)
-    for (const par of contadores.entries()) {
-        const numero = par[0]
-        const contagem = par[1]
-
-        if (contagem < contagemMenosRepetido || (contagem === contagemMenosRepetido && numero > menosRepetido)) {
-            menosRepetido = numero;
-            contagemMenosRepetido = contagem;
+        else if (map.has(numbers[i])) {
+            map.set(numbers[i], map.get(numbers[i]) + 1)
         }
     }
-    return menosRepetido
+
+    let chaves = Array.from(map.keys())
+    let valor = Math.max(...map.values())
+    let maisFrequentes = []
+
+    for (let i = 0; i < chaves.length; i++) {
+        if (map.get(chaves[i]) === valor) {
+            maisFrequentes.push(chaves[i])
+        }
+    }
+    return {value: Math.min(...maisFrequentes), frequency: valor}
 }

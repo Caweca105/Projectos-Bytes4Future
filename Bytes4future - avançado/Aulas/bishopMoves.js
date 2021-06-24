@@ -1,20 +1,41 @@
 function computeBishopMoves(board, position) {
+    let moves = []
+    const player = board[position.line][position.column][0]
 
-    const positions = [
-    { line: 0, column: 0 },
-    { line: 1, column: 1 },
-    { line: 2, column: 2 },
-    { line: 3, column: 3 },
-    { line: 4, column: 4 },
-    { line: 5, column: 5 },
-    { line: 6, column: 6 }
+    const dirs = [
+        { line: 1, column: 1 },
+        { line: -1, column: 1},
+        { line: 1, column: -1},
+        { line: -1, column: -1}
     ]
 
-    return positions.map(p => ({
-        line: p.line + position.line,
-        column: p.column + position.column
-    }))
-        .filter(o => o.column >= 0 && o.line >= 0 && o.column <= 7 && o.line <= 7)
+    for (const { line, column } of dirs) {
+        for (let i = 1; i < 8; i++) {
+            const l = position.line + line * i
+            const c = position.column + column * i
+
+            if (l < 0 || l > 7 || c < 0 || c > 7) break;
+
+            const casa = board[l][c]
+            if (casa === "") {
+                moves.push({ line: l, column: c})
+            } else {
+                if (eAdversario(casa, player)) {
+                    moves.push({ line: l, column: c})
+                }
+                break;
+            }
+        }
+    }
+    return moves;
+}
+
+function eJogador(casa, player) {
+    return casa[0] === player
+}
+
+function eAdversario(casa, player) {
+    return casa[0] !== player
 }
 
 // position é um objeto: { line, column }
