@@ -5,11 +5,13 @@ var getAllTasks = function getAllTasks(req, res) {
 };
 
 var createTask = function createTask(req, res) {
-  res.send('create task');
+  res.json(req.body);
 };
 
 var getTask = function getTask(req, res) {
-  res.send('get single task');
+  res.json({
+    id: req.params.id
+  });
 };
 
 var updateTask = function updateTask(req, res) {
