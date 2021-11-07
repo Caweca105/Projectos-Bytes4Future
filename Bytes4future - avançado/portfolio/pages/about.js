@@ -71,6 +71,8 @@ const About = () => (
 
                     <Paragraph>
                         My native language is not English, as such I may have done a few typos or got wrong some verbal constructions. If you spot one of those, please reach out to me, thank you in advance.
+
+                        This site was done by using Next.js, three.js, chakra-ui and radix
                     </Paragraph>
                 </Section>
 
