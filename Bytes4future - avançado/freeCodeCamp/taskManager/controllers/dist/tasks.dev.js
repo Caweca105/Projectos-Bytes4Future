@@ -1,5 +1,11 @@
 "use strict";
 
+var express = require('express');
+
+var app = express();
+
+var tasks = require('../routes/tasks');
+
 var getAllTasks = function getAllTasks(req, res) {
   res.send('all items from the file');
 };
